@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 
+gem "paperclip"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -35,4 +37,9 @@ group :test do
   gem "spork"
   gem "webrat"
   gem "factory_girl_rails"
+end
+
+group :development, :test do
+  gem "annotate"
+  gem "faker"
 end

@@ -1,4 +1,13 @@
 GimmeSupport::Application.routes.draw do
+  resources :members
+  resources :communities
+
+  get "communities/new"
+
+  get "communities/show"
+
+  get "communities/edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
