@@ -1,8 +1,10 @@
 class QuestionsController < ApplicationController
 
-  def new
-    @question = Question.new
+  #respond_to :html, :js
 
+  def new
+
+    @question = Question.new
   end
 
   def create
@@ -14,7 +16,12 @@ class QuestionsController < ApplicationController
                        params[:question][:content], :title => params[:question][:title])
     if @question.save
       flash[:success] = "Question submitted successfully"
-      redirect_to @community
+
+      respond_to do |format|
+        format.html {redirect_to @community}
+        format.js
+      end
+      #redirect_to @community
     else
       flash[:notice] = "Oops...unable to post question at this time."
       @title = "Create Question"

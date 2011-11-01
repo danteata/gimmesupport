@@ -1,6 +1,9 @@
-<%= link_to question.member.avatar.url unless question.member.nil? %>
+<%=link_to image_tag @community.logo.url("thumb") %>
+<br/>
 <%= link_to question.member.user_name unless question.member.nil?  %>
 <br/>
 <%= question.title %>
+<br/>
 <%= question.content %>
+<br/>
 <%= question.status %>
