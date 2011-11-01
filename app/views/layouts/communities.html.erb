@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>GimmeSupportCommunities</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+<div id = "wrapper">
+  <div id = "header-wrapper">
+    <div id="welcome">
+      <p>Hello, Roseline. Sign out</p>
+    </div>
+    <div id="search" >
+      <form method="post" action="/communities/find">
+      <div>
+        <input type="text" name="companyname" id="search-text" value="search company" />
+        <input type="submit" id="search-submit" value="GO" name="submitcompany" />
+      </div>
+      </form>
+  </div>
+</div>
+</div>
 
 <%= yield %>
 
+<div id="footer">
+  <p>Team Radar</p>
+</div>
+
 </body>
+
 </html>

@@ -1,2 +1,68 @@
 <h1>Communities#show</h1>
+<h1><%= @community.name %></h1>
 <p>Find me in app/views/communities/show.html.erb</p>
+<div id="page">
+  <div id="logo">
+    <%= image_tag @community.logo.url("thumb") %>
+    <!--<img src="public/myimages/ourlogo.png" width=40 align="right" id="mylogo">-->
+    <div id="logotext"></div>		
+  </div>
+  
+  <div id="content">
+    <div class="post">
+
+      <ul>
+        <li><a href="javascript:disable_enable()">Ask a question</a></li>
+        <li><a href="javascript:disable_enable()">Post a suggestion</a></li>
+      </ul>
+      <div id="contact_form">
+        <form name="contact" method="post" action="phpwe/process.php">
+          <textarea name="name" rows="4" cols="57" id="name" placeholder="Ask a question or make a suggestion here."></textarea>
+
+
+
+          <input type="submit" name="submit" class="button" id="submit_btn" />
+        </form>                              
+      </div>
+
+
+    </div>
+
+    <div id="about">
+      <?php 
+      echo $mess;
+      ?>
+    </div>
+  </div>
+  <!-- end #content -->
+  <div id="sidebar">
+    <ul>		
+      <li>
+        <h2>About Apple</h2>
+        <hr/>
+        <p>This is one of many support communities on 
+          Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+      </li>
+      <li>
+        <h2>About this Community</h2>
+        <hr/>
+        <p>
+          <%= @community.description %>
+        </p>
+        <p>This is one of many support communities on 
+          Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+      </li>
+
+      <li>
+        <h2>User Stats</h2>
+        <hr/>
+        <p>This is one of many support communities on 
+          Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+      </li>
+
+    </ul>
+  </div>
+  <!-- end #sidebar -->
+  <div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end #page -->
