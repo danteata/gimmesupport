@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101074119) do
+ActiveRecord::Schema.define(:version => 20111101150209) do
 
   create_table "communities", :force => true do |t|
     t.string   "name",              :null => false
@@ -35,6 +35,24 @@ ActiveRecord::Schema.define(:version => 20111101074119) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "member_id"
+    t.text     "content"
+    t.string   "title"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "responses", :force => true do |t|
+    t.integer  "question_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "member_id"
   end
 
 end

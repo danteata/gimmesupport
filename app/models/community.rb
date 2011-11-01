@@ -1,4 +1,7 @@
 class Community < ActiveRecord::Base
+  has_many :questions, :dependent => :destroy
+  has_and_belongs_to_many :members
+
   has_attached_file :logo, :styles => {:medium => "300 * 300>", 
                         :thumb => "100* 100>"}
 
@@ -10,7 +13,4 @@ class Community < ActiveRecord::Base
 
   scope :find_company, where(:conditions =>[ "lower(name) = ?", name.downcase ]) 
 
-  def self.find_comp name
-
-  end
 end
