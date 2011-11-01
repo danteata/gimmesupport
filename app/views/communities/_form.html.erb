@@ -1,4 +1,5 @@
-<%=form_for(@community, :html => { :multipart => true }) do |f| %>
+<%#multipart enables the file uploading and validates implements the client-side-validation functionality%> 
+<%=form_for(@community, :html => { :multipart => true }, :validate => true) do |f| %>
   <div class="field">
     <%= f.label :logo %>
     <%= f.file_field :logo %>

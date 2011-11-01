@@ -60,6 +60,7 @@ class CommunitiesController < ApplicationController
        redirect_to @community
      else
        flash[:notice] = "Company not found"
+       #redirect_to "index"
        render "index"
       end
     end

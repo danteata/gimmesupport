@@ -1,4 +1,4 @@
-<%=link_to image_tag @community.logo.url("thumb") %>
+<%=link_to image_tag question.member.avatar.url("thumb") unless question.member.nil? %>
 <br/>
 <%= link_to question.member.user_name unless question.member.nil?  %>
 <br/>
