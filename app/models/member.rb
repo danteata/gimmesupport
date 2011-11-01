@@ -2,6 +2,8 @@ class Member < ActiveRecord::Base
 
   has_many :questions
 
+  has_many :responses
+
   has_and_belongs_to_many :communities
 
   has_attached_file :avatar, :styles => {:medium => "300 * 300>", 

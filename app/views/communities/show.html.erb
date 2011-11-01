@@ -7,7 +7,8 @@
     <!--<img src="public/myimages/ourlogo.png" width=40 align="right" id="mylogo">-->
     <div id="logotext"></div>		
   </div>
-  
+
+
   <div id="content">
     <div class="post">
 
@@ -15,24 +16,31 @@
         <li><a href="javascript:disable_enable()">Ask a question</a></li>
         <li><a href="javascript:disable_enable()">Post a suggestion</a></li>
       </ul>
-      <div id="contact_form">
-        <form name="contact" method="post" action="phpwe/process.php">
-          <textarea name="name" rows="4" cols="57" id="name" placeholder="Ask a question or make a suggestion here."></textarea>
 
+      <div id='contact-form'>
+         <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%> 
+         <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
 
+          <%= f.hidden_field :member_id %>
+          <%= f.hidden_field :community_id %>
+          <%= f.text_area :content,:rows => "4", :cols =>"57", :placeholder=> "Ask a question or make a suggestion HERE." %>
+          <br/>
+          <%= f.submit "Query", :class => "button", :id => "submit_btn" %>
+          <% end %>
+      </div>
 
-          <input type="submit" name="submit" class="button" id="submit_btn" />
-        </form>                              
       </div>
 
 
     </div>
 
-    <div id="about">
-      <?php 
-      echo $mess;
-      ?>
-    </div>
+
+  <div id="posts">
+
+    <p>the php message here..lol</p>
+
+    <%= render @questions unless @questions.empty? %>
+
   </div>
   <!-- end #content -->
   <div id="sidebar">
@@ -65,4 +73,3 @@
   <!-- end #sidebar -->
   <div style="clear: both;">&nbsp;</div>
 </div>
-<!-- end #page -->

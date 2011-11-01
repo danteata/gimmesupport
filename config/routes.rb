@@ -1,6 +1,15 @@
 GimmeSupport::Application.routes.draw do
+  get "questions/new"
+
+  get "questions/edit"
+
+  get "questions/show"
+
   resources :members
   resources :communities
+  resources :questions do
+    resources :responses
+  end
 
   get "communities/search"
   post "communities/find"

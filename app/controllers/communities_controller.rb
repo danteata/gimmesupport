@@ -23,6 +23,8 @@ class CommunitiesController < ApplicationController
   def show
 
     @community = Community.find(params[:id])
+    @questions = @community.questions
+    #@questions = @community.questions.blank?[] : @community.questions
     #@community = Community.find_by_name(params[:id]) #for displaying url with company name 
   end
 
