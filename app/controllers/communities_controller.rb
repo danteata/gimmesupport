@@ -13,7 +13,7 @@ class CommunitiesController < ApplicationController
       flash[:success] = "New Support Community Successfully created, #{@community.name}"
       redirect_to @community
     else
-      flash[:error] = "Process successful"
+      flash[:error] = "Process unsuccessful"
       @title = "New community"
       render 'new'
     end
@@ -38,7 +38,9 @@ class CommunitiesController < ApplicationController
     if @community.update_attributes(params[:community])
       flash[:success] = "Community updated successfully"
       redirect_to @community
+
     else
+      flash[:notic] = "Oops something went wrong"
       @title = Edit Community
       render "edit"
     end
