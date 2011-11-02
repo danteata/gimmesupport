@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
 
   #respond_to :html, :js
+  def index
+    @questions = Questions.all.paginate(:page=>1)
+  end
 
   def new
 

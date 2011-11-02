@@ -31,12 +31,16 @@
 
       </div>
 
+  <%#<%= will_paginate @questions %>
+
   <div id="questions">
 
 
     <%= render @questions unless @questions.empty? %>
 
   </div>
+
+  <%= will_paginate @questions %>  
 
     </div>
 
