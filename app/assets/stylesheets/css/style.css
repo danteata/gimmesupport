@@ -1,0 +1,552 @@
+/* 
+    Document   : style
+    Created on : Oct 31, 2011, 11:45:26 AM
+    Author     : abednego
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+/*
+
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #FFFFFF url(../images/img01.jpg) repeat-x left top;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #3C3D3F;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	color: #FF3000;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 2.8em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+p, ul, ol {
+	margin-top: 0;
+	line-height: 180%;
+}
+
+ul, ol {
+}
+
+a {
+	text-decoration: underline;
+	color: #FF6600;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* Header */
+
+#header-wrapper {
+
+	margin-top:10px;
+	height:150px;
+
+}
+
+#header {
+	overflow: hidden;
+	float:left;
+	margin-left:270px;
+	width: 400px;
+	padding: 30px 0px 0px 0px;
+}
+
+/* Logo */
+#mylogo{
+	margin-top:0px;
+        margin-right: 20px;
+	width:100px;
+	
+}
+
+#companyarea{
+	width:300px;
+	margin-top:30px;
+	margin-left:280px;
+	height:100px;
+	border-radius:10px 0px 10px 0px;
+	position:absolute;
+        -moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: 0px 0px 7px #888;
+}
+
+#logo {
+	float: left;
+	width: 170px;
+	margin-top:30px;
+	margin-left:1130px;
+	padding: 0;
+	color: #000000;
+	position:relative;
+	
+}
+#logotext{
+	float:right;
+	width:180px;
+	height:200px;
+	color:black;
+	border:1px solid grey;
+	margin-left:100px;
+}
+
+#logo h1, #logo p {
+}
+
+#logo h1 {
+	margin-left: 30px;
+	padding: 20px 0px 0px 0px;
+	letter-spacing: -1px;
+	text-transform: none;
+	font-size: 3.8em;
+	color: black;
+}
+
+#logo p {
+	margin: -5px 0px 0px 0px;
+	padding: 0px 0 0 32px;
+	text-transform: lowercase;
+	font: normal 14px Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	color: #45302C;
+} 
+
+#logo a {
+	border: none;
+	background: none;
+	text-decoration: none;
+	color: #202020;
+}
+
+/* Search */
+
+#search {
+	width: 250px;
+	height: 50px;
+	padding: 0px 0px 0px 0px;
+	float:right;
+	margin-top:80px;
+	margin-left:900px;
+	position:absolute;
+}
+
+#welcome{
+	width: 350px;
+	height: 30px;
+	padding: 0px 0px 0px 0px;
+	float:right;
+	margin-top:120px;
+	margin-left:890px;
+	position:absolute;
+	border:1px solid white;	
+	padding:5px 5px 5px 5px;
+}
+#search r {
+	margin: 0;
+	padding: 15px 0 0 5px;
+}
+
+#search fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius:10px 0px 10px 0px;
+}
+
+#search-text {
+	width: 150px;
+	height: 15px;
+	margin-right: 10px;
+	padding: 3px 10px 6px 10px;
+	border-radius:10px 0px 10px 0px;
+	background: #FFFFFF;
+	text-transform: lowercase;
+	font: normal 12px Arial, Helvetica, sans-serif;
+	color: #B9ADAA;
+}
+
+#search-submit {
+	width: 45px;
+	height: 26px;
+	border-radius:10px 0px 10px 0px;
+	background: none;
+	color: #FF6600;
+}
+
+#submit_btn{
+	width: 100px;
+	height: 26px;
+	border-radius:10px 0px 10px 0px;
+	background: none;
+	color: #FF6600;
+	float:right;
+}
+#name{
+        border:1px solid greenyellow;
+}
+
+#list.ul{
+float:right;
+width:9000px;
+padding:0;
+margin:0;
+list-style-type:none;
+background:yellow;
+
+}
+#list{
+	width:500px;
+	height:30px;
+}
+
+#list.a
+{
+float:left;
+text-decoration:none;
+color:white;
+background-color:purple;
+padding:0.2em 0.6em;
+border-right:1px solid white;
+width:200px;
+margin-left:0px;
+}
+
+a:hover {
+text-decoration:blink;
+}
+
+li {
+display:inline;
+}
+
+/* Menu */
+
+#menu {
+	float: right;
+}
+
+#menu ul {
+	margin: 0px;
+	padding: 50px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	height: 38px;
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FF6600;
+}
+
+#menu a:hover {
+	text-decoration: none;
+}
+
+#menu span {
+	display: inline-block;
+	height: 28px;
+	padding: 10px 30px 0px 30px;
+}
+
+#menu li.active {
+	background: #FF6600;
+}
+
+#menu li.active a {
+	background: url(../images/img02.jpg) no-repeat left top;
+}
+
+#menu li.active span {
+	background: url(../images/img03.jpg) no-repeat right top;
+	color: #FF6600;
+}
+
+/* Page */
+
+#page {
+	width: 1200px;
+	margin-left:0; 
+	padding: 0px 0px 0px 0px;
+	position:absolute;
+}
+
+#page-bgtop {
+}
+/* Content */
+
+
+#content {
+	float: left;
+	width: 630px;
+	padding: 20px 10px 10px 10px;
+	margin-left:210px;
+	border-radius:10px;
+	background:white;
+	position:absolute;
+
+}
+
+.post {
+	width:580px;
+	height:180px;
+	margin-left:10px;
+	margin-top: 10px;
+	padding: 0px 30px;
+	border-radius:10px;
+	border:1px solid #EBEBEB;
+	padding:10px;
+                -moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow:5px 5px 5px #888;
+box-shadow: 0px 0px 6px #888;
+}
+
+.post .title {
+	height: 41px;
+	padding: 0px 0px 0px 0px;
+}out
+
+
+.post .title a {
+	letter-spacing: -2px;
+	text-decoration: none;
+	text-transform: lowercase;
+	color: #202020;
+	border: none;
+}
+
+.post .entry {
+	padding: 10px 0px 20px 0px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #D1D9F0;
+	text-align: justify;
+}
+
+.post .meta {
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+.post .links {
+}
+
+.links a {
+	padding: 4px 10px;
+	background: #87A0E5;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+.author {
+	padding: 4px 10px;
+	background: #DF8088;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+.author a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.date {
+	padding: 4px 10px;
+	background: #91D9AA;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 300px;
+	margin-top: 50px;
+	margin-right:40px;
+	padding: 0px 0px 0px 0px;
+	background: #EBEBEB;
+	border-bottom: 4px solid #FF6600;
+                -moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: inset 0px 0px 10px #888;
+}
+
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	padding: 0;
+}
+
+#sidebar li ul {
+	margin: 0px;
+	padding-bottom: 30px;
+}
+
+#sidebar li li {
+	margin: 0px 30px 0px 30px;
+	line-height: 35px;
+	border-bottom: 1px solid #CFCFCF;
+	border-left: none;
+	text-align: left;
+}
+
+#sidebar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#sidebar li li a {
+	padding: 0px 0px 0px 20px;
+	background: url(../images/img05.jpg) no-repeat left 5px;
+}
+
+#sidebar h2 {
+	height: 30px;
+	margin: 0px 0px 20px 0px;
+	padding: 2px 0px 0px 30px;
+	background: url(../images/img04.jpg) no-repeat left top;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: -.5px;
+	font-size: 1em;
+	font-weight: bold;
+	color: #202020;
+}
+
+#sidebar p {
+	margin: 0 0px;
+	padding: 0px 20px 20px 20px;
+	text-align: justify;
+}
+
+#sidebar a {
+	border: none;
+	text-decoration: none;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+}
+
+/* Calendar */
+
+#calendar {
+}
+
+#calendar_wrap {
+	padding: 20px;
+}
+
+#calendar table {
+	width: 100%;
+}
+
+#calendar tbody td {
+	text-align: center;
+}
+
+#calendar #next {
+	text-align: right;
+}
+
+/* Footer */
+
+#footer {
+	height: 120px;
+	margin-top:900px;
+	padding: 0px 0 15px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background:#FF6600;
+}
+
+#footer p {
+	margin: 0;
+	padding: 20px 0px 0px 30px;
+	line-height: normal;
+	font-size: 10px;
+	text-transform: uppercase;
+	text-align: left;
+	color: #45302C;
+}
+
+#footer a {
+}
+
+#about {
+	width: 570px;
+	height:500px;
+	margin-top:20px;
+	padding: 30px;
+	background: #EBEBEB;
+	border-bottom: 4px solid #FF6600;
+	color: #3C3D3F;
+	border-radius:10px 10px 0px 0px;
+         -moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: inset 0px 0px 8px #888;
+}
+
+#about h2 {
+	padding-bottom: 10px;
+	color: #202020;
+}
+
+#about a {
+	color: #FF6600;
+}
+

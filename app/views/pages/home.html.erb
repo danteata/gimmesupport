@@ -3,12 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Gimme Support</title>
-<link rel="stylesheet" href="styles.css" type="text/css"/>
-<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="themes/pascal/pascal.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="themes/orman/orman.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 </head>
 
 <body>
@@ -45,21 +39,19 @@
         <div class="slider-wrapper theme-default">
          
             <div id="slider" class="nivoSlider">
-                <img src="images/toystory.jpg" alt="" />
-                <img src="images/walle.jpg" alt="" />
+              <%=image_tag "images/toystory.jpg", :alt=>"" %>
+              <%=image_tag "images/walle.jpg", :alt=>"" %>
             </div>
 
         </div>
-		</div>
-    <script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
-    <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
+      </div>
     <script type="text/javascript">
+      jQuery.noConflict();
     $(window).load(function() {
         $('#slider').nivoSlider();
     });
     </script>
-	
-  
+    
  </div>
 
 
