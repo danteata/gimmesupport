@@ -7,6 +7,7 @@ class Question < ActiveRecord::Base
   validates :content, :presence =>true
 
   before_save :set_initial_status #sets the status of the question
+  before_save :associate_member_with_community #associates the topic poster as a contributor to the community
 
   private
 
@@ -14,6 +15,10 @@ class Question < ActiveRecord::Base
     if self.status.blank?
       self.status = "unsolved"
     end
+  end
+
+  def associate_member_with_community
+    self.community.members.add .self.member unless self.community.members.include? self.member
   end
   
 end

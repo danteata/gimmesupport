@@ -49,6 +49,9 @@
         <hr/>
         <p>This is one of many support communities on 
           Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+        <p>
+          <%= @community.description %>
+        </p>
       </li>
       <li>
         <h2>About this Community</h2>
@@ -63,6 +66,7 @@
       <li>
         <h2>User Stats</h2>
         <hr/>
+        <%= pluralize(Member.last.questions.count, "question posted") %>
         <p>This is one of many support communities on 
           Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
       </li>
