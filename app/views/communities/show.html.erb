@@ -19,7 +19,7 @@
 
       <div id='contact-form'>
          <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%> 
-         <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
+         <%= form_for @community.questions.build(:member_id => Member.first.id), :remote => true do |f|%>
 
           <%= f.hidden_field :member_id %>
           <%= f.hidden_field :community_id %>
@@ -56,6 +56,13 @@
       <li>
         <h2>About this Community</h2>
         <hr/>
+        <span id="community-questions-count">
+        <%= pluralize(@questions.count, "question") %>
+        </span>
+        <br/>
+        <span id="community-members-count">
+        <%= pluralize(@members.count, "member") %>
+        </span>
         <p>
           <%= @community.description %>
         </p>
@@ -66,7 +73,16 @@
       <li>
         <h2>User Stats</h2>
         <hr/>
-        <%= pluralize(Member.last.questions.count, "question posted") %>
+        
+        <span id="member-total-questions">
+          <%= pluralize(Member.last.questions.count, "question") %>
+        </span>
+        <br/>
+        <span id="member-total-questions-community">
+           <%#find the number of questions member has contributed to a specific community%> 
+          <%= pluralize((Member.last.questions & @community.questions).count, "question") %>
+        </span>
+
         <p>This is one of many support communities on 
           Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
       </li>

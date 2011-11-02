@@ -18,7 +18,7 @@ class Question < ActiveRecord::Base
   end
 
   def associate_member_with_community
-    self.community.members.add .self.member unless self.community.members.include? self.member
+  self.community.members << self.member unless self.community.members.include? self.member
   end
   
 end
