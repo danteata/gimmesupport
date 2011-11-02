@@ -84,15 +84,17 @@ a:hover {
 }
 
 /* Logo */
+
+
 #mylogo{
 	margin-top:0px;
-        margin-right: 20px;
-	width:100px;
+        margin-right: 0px;
+
 	
 }
 
 #companyarea{
-	width:300px;
+	width:500px;
 	margin-top:30px;
 	margin-left:280px;
 	height:100px;
@@ -105,14 +107,16 @@ box-shadow: 0px 0px 7px #888;
 
 #logo {
 	float: left;
-	width: 170px;
-	margin-top:30px;
-	margin-left:1130px;
+	width: 80px;
+	margin-top:70px;
 	padding: 0;
 	color: #000000;
 	position:relative;
-	
+        height: 170px;
 }
+
+
+
 #logotext{
 	float:right;
 	width:180px;
@@ -150,73 +154,158 @@ box-shadow: 0px 0px 7px #888;
 	color: #202020;
 }
 
-/* Search */
+/* Search---------------------------------------------------------- */
 
-#search {
-	width: 250px;
-	height: 50px;
-	padding: 0px 0px 0px 0px;
-	float:right;
-	margin-top:80px;
-	margin-left:900px;
-	position:absolute;
-}
-
-#welcome{
-	width: 350px;
-	height: 30px;
-	padding: 0px 0px 0px 0px;
-	float:right;
-	margin-top:120px;
-	margin-left:890px;
-	position:absolute;
-	border:1px solid white;	
-	padding:5px 5px 5px 5px;
-}
-#search r {
-	margin: 0;
-	padding: 15px 0 0 5px;
-}
-
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius:10px 0px 10px 0px;
-}
-
-#search-text {
-	width: 150px;
-	height: 15px;
-	margin-right: 10px;
-	padding: 3px 10px 6px 10px;
-	border-radius:10px 0px 10px 0px;
-	background: #FFFFFF;
-	text-transform: lowercase;
-	font: normal 12px Arial, Helvetica, sans-serif;
-	color: #B9ADAA;
-}
-
-#search-submit {
-	width: 45px;
+/*.search {
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-image: url(imagesa/top_menu_03.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
 	height: 26px;
-	border-radius:10px 0px 10px 0px;
-	background: none;
-	color: #FF6600;
+	width: 84px;
+	padding-top: 15px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 25px;
 }
-
-#submit_btn{
-	width: 100px;
+.search:hover {
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: bold;
+	color: #ed5400;
+	text-decoration: none;
+	background-image: url(imagesa/top_menu1_03.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
 	height: 26px;
-	border-radius:10px 0px 10px 0px;
-	background: none;
-	color: #FF6600;
-	float:right;
-}
-#name{
-        border:1px solid greenyellow;
+	width: 84px;
+	padding-top: 15px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 25px;
 }
 
+*/.search_menu_banner {
+	padding: 0px;
+	float: left;
+	height: 38px;
+	width: 400px;
+        margin-left:880px;
+        margin-top: 140px;
+}/*
+
+
+*/.search_background {
+	background-image: url(../imagesa/search.png);
+	background-repeat: no-repeat;
+	padding: 0px;
+	float: left;
+	height: 38px;
+	width: 290px;
+	margin-top: 0px;
+	margin-right: 74px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}/*
+.searchname {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #9a2500;
+	text-decoration: none;
+	float: left;
+	height: 20px;
+	padding-top: 12px;
+	padding-right: 8px;
+	padding-bottom: 0px;
+	padding-left: 50px;
+	margin: 0px;
+}
+*/.searchbox {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #9a2500;
+	text-decoration: none;
+	float: left;
+	height: 20px;
+	padding-top: 8px;
+	padding-right: 8px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-left:40px;
+}/*
+*/.searchtextbox {
+	font-family: Arial;
+	font-size: 9px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: 19px;
+	width: 200px;
+	border: 1px solid #CCCCCC;
+}/*
+*/.searchtextbox:hover {
+	font-family: Arial;
+	font-size: 9px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: 19px;
+	width: 200px;
+	border: 1px solid #999999;
+}/*
+
+*/.go {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-image: url(../imagesa/go.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
+	height: 19px;
+	width: 34px;
+	text-transform: capitalize;
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}/*
+*/.go:hover {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-image: url(../imagesa/go1.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
+	height: 19px;
+	width: 34px;
+	text-transform: capitalize;
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+
+/* Search---------------------------------------------------------- */
 #list.ul{
 float:right;
 width:9000px;
@@ -318,6 +407,17 @@ display:inline;
 }
 /* Content */
 
+#welcome{
+    margin-top:150px ;
+    position: absolute;
+    margin-left: 0px;
+    background-color:#FF6600;
+    width: 190px;
+    height:30px;
+    color: white;
+    padding-left: 10px;
+    border-radius:10px 10px 0px 0px;
+}
 
 #content {
 	float: left;
@@ -409,6 +509,8 @@ box-shadow: 0px 0px 6px #888;
 	float: right;
 	width: 300px;
 	margin-top: 50px;
+        margin-bottom: 20px;
+        height: auto;
 	margin-right:40px;
 	padding: 0px 0px 0px 0px;
 	background: #EBEBEB;
@@ -508,7 +610,6 @@ box-shadow: inset 0px 0px 10px #888;
 
 #footer {
 	height: 120px;
-	margin-top:900px;
 	padding: 0px 0 15px 0;
 	font-family: Arial, Helvetica, sans-serif;
 	background:#FF6600;
@@ -529,8 +630,10 @@ box-shadow: inset 0px 0px 10px #888;
 
 #about {
 	width: 570px;
-	height:500px;
+	min-height:300px;
+        height: auto;
 	margin-top:20px;
+        margin-bottom: 20px;
 	padding: 30px;
 	background: #EBEBEB;
 	border-bottom: 4px solid #FF6600;
@@ -550,3 +653,26 @@ box-shadow: inset 0px 0px 8px #888;
 	color: #FF6600;
 }
 
+/*------------------------------------------------fotter--------------------*/
+#fotter{
+	width:100%;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	font-family: Tahoma;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #dcd66e;
+	text-decoration: none;
+	padding-left: 470px;
+	float: left;
+	height: 50px;
+	background-image: url(../imagesa/fotter_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+}
