@@ -549,4 +549,14 @@ box-shadow: inset 0px 0px 8px #888;
 #about a {
 	color: #FF6600;
 }
-
+#ajax-status {
+  display:inline;
+  float:right;
+  position:fixed;
+  right:0px;
+  top:15px;
+  padding:5px;
+  color:white;
+  background: gray;
+  display:none;
+}
