@@ -1,58 +1,46 @@
-<h1>Communities#show</h1>
-<h1><%= @community.name %></h1>
-<p>Find me in app/views/communities/show.html.erb</p>
 <div id="page">
-  <div id="logo">
-    <%= image_tag @community.logo.url("thumb") %>
-    <!--<img src="public/myimages/ourlogo.png" width=40 align="right" id="mylogo">-->
-    <div id="logotext"></div>		
-  </div>
-
-
   <div id="content">
     <div class="post">
 
       <ul>
-        <li><a href="javascript:disable_enable()">Ask a question</a></li>
+        <li>Ask a question</li>
+        <span id="something"></span>
         <li><a href="javascript:disable_enable()">Post a suggestion</a></li>
       </ul>
-
-      <div id='contact-form'>
-         <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%> 
-         <%= form_for @community.questions.build(:member_id => Member.first.id), :remote => true do |f|%>
+      <div id="contact_form">
+        <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
+        <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
 
           <%= f.hidden_field :member_id %>
           <%= f.hidden_field :community_id %>
-          <%= f.text_area :content,:rows => "4", :cols =>"57", :placeholder=> "Ask a question or make a suggestion HERE." %>
+          <%= f.text_area :content,:id =>"query-text-area", :rows => "4", :cols =>"57", :placeholder=> "Ask a question or make a suggestion HERE." %>
           <br/>
           <%= f.submit "Query", :class => "button", :id => "submit_btn" %>
-          <% end %>
+        <% end %>
       </div>
-
-      </div>
-
-  <%#<%= will_paginate @questions %>
-
-  <div id="questions">
-
-
-    <%= render @questions unless @questions.empty? %>
-
-  </div>
-
-  <%= will_paginate @questions %>  
-
     </div>
 
+    <div id="about">
+      <%=image_tag "coms.jpg"%>
 
+      <div id="comments">
+
+        <%= render @questions unless @questions.empty? %>
+
+        <%#pagination functionality for questions displayed%> 
+        <%= will_paginate @questions %>
+      </div>
+
+    </div>
+  </div>
   <!-- end #content -->
   <div id="sidebar">
-    <ul>		
+    <ul>
       <li>
-        <h2>About Apple</h2>
+        <h2><%= "About #{@community.name}" %></h2>
         <hr/>
-        <p>This is one of many support communities on 
-          Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+        <p>This is one of many support communities on
+          GimmeSupport, a place where customers and companies connect around the products and services they use..</p>
         <p>
           <%= @community.description %>
         </p>
@@ -61,38 +49,31 @@
         <h2>About this Community</h2>
         <hr/>
         <span id="community-questions-count">
-        <%= pluralize(@questions.count, "question") %>
+          <%="#{pluralize(@questions.count, 'question')} posted"  %>
         </span>
         <br/>
         <span id="community-members-count">
-        <%= pluralize(@members.count, "member") %>
+          <%="#{ pluralize(@members.count, 'member')} on board" %>
         </span>
-        <p>
-          <%= @community.description %>
-        </p>
-        <p>This is one of many support communities on 
-          Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
       </li>
 
       <li>
         <h2>User Stats</h2>
         <hr/>
-        
+        <%= image_tag Member.last.avatar.url("thumb") %>
+        <br/>
         <span id="member-total-questions">
-          <%= pluralize(Member.last.questions.count, "question") %>
+          <%= "#{pluralize(Member.last.questions.count, 'question')} posted overall" %>
         </span>
         <br/>
         <span id="member-total-questions-community">
            <%#find the number of questions member has contributed to a specific community%> 
-          <%= pluralize((Member.last.questions & @community.questions).count, "question") %>
+           <%= "#{pluralize((Member.last.questions & @community.questions).count, "question")} on this community" %>
         </span>
-
-        <p>This is one of many support communities on 
-          Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
       </li>
 
     </ul>
   </div>
   <!-- end #sidebar -->
-  <div style="clear: both;">&nbsp;</div>
 </div>
+<!-- end #page -->

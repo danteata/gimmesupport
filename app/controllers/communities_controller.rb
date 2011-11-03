@@ -32,6 +32,10 @@ class CommunitiesController < ApplicationController
     @members = @community.members
     #@questions = @community.questions.blank?[] : @community.questions
     #@community = Community.find_by_name(params[:id]) #for displaying url with company name 
+      respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   def edit

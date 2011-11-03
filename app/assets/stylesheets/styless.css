@@ -85,7 +85,7 @@ ul{
 	font-family: Arial;
 	font-size: 10px;
 	font-weight: bold;
-	color: #ed5400;
+	color: white;
 	text-decoration: none;
 	background-image: url(imagesa/top_menu1_01.png);
 	background-repeat: no-repeat;
@@ -207,7 +207,7 @@ ul{
 
 #stylo{
 	margin-left:1146px;
-	margin-top:223px;
+	margin-top:219px;
 	float:left;
 
 }

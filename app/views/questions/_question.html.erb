@@ -1,9 +1,17 @@
-<%=link_to image_tag question.member.avatar.url("thumb") unless question.member.nil? %>
-<br/>
-<%= link_to question.member.user_name unless question.member.nil?  %>
-<br/>
-<%= question.title %>
-<%= question.content %>
-<br/>
-<%= question.status %>
 <hr/>
+
+<%#<div id="thumbimage"><img src="" width="50" height="50">%>
+<%#<%=link_to image_tag question.member.avatar.url("thumb") unless question.member.nil? %>
+<%#</img></div>%>
+
+<div id="questiontext"><p>
+<%= link_to question.member.user_name unless question.member.nil?  %>:
+<%= question.content %>
+</p></div>
+
+<div id="status">
+<%= question.status %>
+</div>
+  <form action="" method="post">
+      <input type="submit" value="follow" name="followbtn"></input>
+  </form>

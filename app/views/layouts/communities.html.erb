@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>GimmeSupportCommunities</title>
-  <%= stylesheet_link_tag    "communities" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>GimmeSupportCommunities</title>
+    <%= stylesheet_link_tag    "communities", "styles", "css/style" %>
+    <%= javascript_include_tag "application","http://localhost:9292/faye.js" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<body>
-<div id = "wrapper">
-  <div id = "header-wrapper">
-    <div id="welcome">
-      <p>Hello, Roseline. Sign out</p>
-    </div>
-    <div id="search" >
-      <form method="post" action="/communities/find">
-      <div>
-        <input type="text" name="companyname" id="search-text" value="search company" />
-        <input type="submit" id="search-submit" value="GO" name="submitcompany" />
+  <body>
+
+    <div id="header-wrapper">
+      <div id="companyarea">
+        <%= image_tag @community.logo.url("thumb") %>
+        <span id ="company-name"><%= @community.name %></span>
       </div>
-      </form>
-  </div>
-</div>
-</div>
-<%#shows the status of an ajax process%> 
-<div id="ajax-status"> ashubishubi </div>
 
-<%= yield %>
+      <div id="welcome">
+        <p><%=link_to (image_tag "gimLogo.png", :height=>"40"), "/" %></p> 
+      </div>
+      <div class="search_menu_banner">
+        <div class="search_background">
+          <div class="searchbox">
+              <form method="post" action="/communities/find">
+                  <input name="companyname" type="text" class="searchtextbox" placeholder="       search company" />
+                  <input type="submit" id="search-submit" class="go" value="GO" name="submitcompany" />
+              </form>
+          </div>
 
-<div id="footer">
-  <p>Team Radar</p>
-</div>
+        </div>
+      </div>
 
-</body>
+    </div>
+    <div id="ajax-status"></div>
+    <%= yield %>
+
+
+  </body>
 
 </html>

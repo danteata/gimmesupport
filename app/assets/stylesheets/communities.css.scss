@@ -396,21 +396,23 @@ box-shadow: 0px 0px 6px #888;
 	color: #FFFFFF;
 }
 
+
 /* Sidebar */
 
 #sidebar {
 	float: right;
 	width: 300px;
-	margin-top: 50px;
-	margin-right:90px;
+	margin-top: 60px;
+        margin-bottom: 20px;
+        height: auto;
+	margin-right:186px;
 	padding: 0px 0px 0px 0px;
 	background: #EBEBEB;
 	border-bottom: 4px solid #FF6600;
-                -moz-box-shadow: 10px 10px 5px #888;
+/*                -moz-box-shadow: 10px 10px 5px #888;
 -webkit-box-shadow: 5px 5px 5px #888;
-box-shadow: inset 0px 0px 10px #888;
+box-shadow:  0px 0px 10px #888;*/
 }
-
 
 #sidebar ul {
 	margin: 0;
@@ -445,14 +447,14 @@ box-shadow: inset 0px 0px 10px #888;
 
 #sidebar li li a {
 	padding: 0px 0px 0px 20px;
-	background: url(image_path("img05.jpg")) no-repeat left 5px;
+	background: url(../images/img05.jpg) no-repeat left 5px;
 }
 
 #sidebar h2 {
 	height: 30px;
 	margin: 0px 0px 20px 0px;
 	padding: 2px 0px 0px 30px;
-	background: url(image_path("img04.jpg")) no-repeat left top;
+	background: url(../images/img04.jpg) no-repeat left top;
 	text-align: left;
 	text-transform: uppercase;
 	letter-spacing: -.5px;
@@ -551,5 +553,10 @@ box-shadow: inset 0px 0px 8px #888;
   padding:5px;
   color:white;
   background: gray;
-  display:none;
+  /*display:none;*/
+}
+
+#company-name {
+  font-size:40px;
+  color:#F60;
 }
