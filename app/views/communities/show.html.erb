@@ -48,11 +48,11 @@
       <li>
         <h2>About this Community</h2>
         <hr/>
-        <span id="community-questions-count">
+        <span class="stats" id="community-questions-count">
           <%="#{pluralize(@questions.count, 'question')} posted"  %>
         </span>
         <br/>
-        <span id="community-members-count">
+        <span class="stats" id="community-members-count">
           <%="#{ pluralize(@members.count, 'member')} on board" %>
         </span>
       </li>
@@ -62,11 +62,11 @@
         <hr/>
         <%= image_tag Member.last.avatar.url("thumb") %>
         <br/>
-        <span id="member-total-questions">
+        <span class="stats" id="member-total-questions">
           <%= "#{pluralize(Member.last.questions.count, 'question')} posted overall" %>
         </span>
         <br/>
-        <span id="member-total-questions-community">
+        <span class="stats" id="member-total-questions-community">
            <%#find the number of questions member has contributed to a specific community%> 
            <%= "#{pluralize((Member.last.questions & @community.questions).count, "question")} on this community" %>
         </span>

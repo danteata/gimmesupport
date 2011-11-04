@@ -1,5 +1,6 @@
 jQuery ->
   jQuery.noConflict()
   $(".pagination a").live "click", ->
+    $("#comments").html('<%=  image_tag "loading-machine.gif" %>')
     $.getScript(@href)
     return false
