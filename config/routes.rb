@@ -1,5 +1,7 @@
 GimmeSupport::Application.routes.draw do
 
+  get "chats/new"
+
   get "pages/home"
 
   get "pages/about"
