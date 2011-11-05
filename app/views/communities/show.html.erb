@@ -2,21 +2,37 @@
   <div id="content">
     <div class="post">
 
-      <ul>
-        <li>Ask a question</li>
-        <span id="something"></span>
-        <li><a href="javascript:disable_enable()">Post a suggestion</a></li>
-      </ul>
-      <div id="contact_form">
-        <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
-        <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
+      <div id="tabs">
 
-          <%= f.hidden_field :member_id %>
-          <%= f.hidden_field :community_id %>
-          <%= f.text_area :content,:id =>"query-text-area", :rows => "4", :cols =>"57", :placeholder=> "Ask a question or make a suggestion HERE." %>
-          <br/>
-          <%= f.submit "Query", :class => "button", :id => "submit_btn" %>
-        <% end %>
+        <ul class="tabnav">
+          <li><%= link_to "Ask a question", "#contact_form" %></li>
+          <li><%= link_to "Post a suggestion", "#suggestion_form" %></li>
+        </ul>
+        <div class= "panes">
+          <div id="contact_form" class="tabdiv">
+            <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
+            <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
+
+              <%= f.hidden_field :member_id %>
+              <%= f.hidden_field :community_id %>
+              <%= f.text_area :content,:id =>"query-text-area", :rows => "4", :cols =>"57", :placeholder=> "Ask a question or make a suggestion HERE." %>
+              <br/>
+              <%= f.submit "Query", :class => "button", :id => "submit_btn" %>
+            <% end %>
+          </div>
+
+          <div id="suggestion_form" class="tabdiv">
+            <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
+            <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
+
+              <%= f.hidden_field :member_id %>
+              <%= f.hidden_field :community_id %>
+              <%= f.text_area :content,:id =>"query-text-area", :rows => "4", :cols =>"57", :placeholder=> "Post a suggestion HERE." %>
+              <br/>
+              <%= f.submit "Query", :class => "button", :id => "submit_btn" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -67,8 +83,8 @@
         </span>
         <br/>
         <span class="stats" id="member-total-questions-community">
-           <%#find the number of questions member has contributed to a specific community%> 
-           <%= "#{pluralize((Member.last.questions & @community.questions).count, "question")} on this community" %>
+          <%#find the number of questions member has contributed to a specific community%> 
+          <%= "#{pluralize((Member.last.questions & @community.questions).count, "question")} on this community" %>
         </span>
       </li>
 

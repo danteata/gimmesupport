@@ -5,6 +5,8 @@
 <%#</img></div>%>
 
 <div id="questiontext"><p>
+    <%="#{ time_ago_in_words question.created_at } ago " %> 
+<br/>
 <%= link_to question.member.user_name unless question.member.nil?  %>:
 <%= question.content %>
 </p></div>
