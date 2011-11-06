@@ -3,4 +3,4 @@ jQuery ->
   $(".pagination a").live "click", ->
     $("#comments").html('<%=  image_tag "loading-machine.gif" %>')
     $.getScript(@href)
-    return false
+    return false <%#prevents the click operation from performing it original behaviour%> 

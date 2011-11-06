@@ -17,3 +17,12 @@
   <form action="" method="post">
       <input type="submit" value="follow" name="followbtn"></input>
   </form>
+  <div id="responses"><%= render question.responses %></div>
+  <%= form_for question.responses.build(:member_id => Member.first.id), :remote => true do |f|%>
+
+  <%= f.hidden_field :member_id %>
+  <%= hidden_field_tag 'question_id', question.id  %>
+  <%= f.text_area :content,:id =>"response-text-area", :rows => "4", :cols =>"57", :placeholder=> "  Your response " %>
+  <br/>
+  <%= f.submit "Respond", :class => "button", :id => "submit_btn" %>
+<% end %>

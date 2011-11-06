@@ -24,6 +24,7 @@ GimmeSupport::Application.routes.draw do
   resources :questions do
     resources :responses
   end
+  resource :responses
 
   get "communities/search"
   post "communities/find"

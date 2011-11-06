@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111104070313) do
+ActiveRecord::Schema.define(:version => 20111105154536) do
 
   create_table "chats", :force => true do |t|
     t.integer  "member_id"
@@ -65,11 +65,12 @@ ActiveRecord::Schema.define(:version => 20111104070313) do
   end
 
   create_table "responses", :force => true do |t|
-    t.integer  "question_id"
+    t.integer  "respondable_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "member_id"
+    t.string   "respondable_type"
   end
 
 end
