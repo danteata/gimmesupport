@@ -23,13 +23,13 @@
 
           <div id="suggestion_form" class="tabdiv">
             <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
-            <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
+            <%= form_for @community.suggestions.build(:member_id => Member.last.id), :remote => true do |f|%>
 
               <%= f.hidden_field :member_id %>
               <%= f.hidden_field :community_id %>
-              <%= f.text_area :content,:id =>"query-text-area", :rows => "4", :cols =>"57", :placeholder=> "Post a suggestion HERE." %>
+              <%= f.text_area :content,:id =>"suggestion-text-area", :rows => "4", :cols =>"57", :placeholder=> "Post a suggestion HERE." %>
               <br/>
-              <%= f.submit "Query", :class => "button", :id => "submit_btn" %>
+              <%= f.submit "Suggest", :class => "button", :id => "submit_btn" %>
             <% end %>
           </div>
         </div>
@@ -41,10 +41,20 @@
 
       <div id="comments">
 
-        <%= render @questions unless @questions.empty? %>
+        <%= render @questions unless @questions.blank? %>
 
         <%#pagination functionality for questions displayed%> 
         <%= will_paginate @questions %>
+      </div>
+
+      <%=image_tag "coms.jpg"%>
+
+      <div id="suggestions">
+
+        <%= render @suggestions unless @suggestions.blank? %>
+
+        <%#pagination functionality for suggestions displayed%> 
+        <%= will_paginate @suggestions  %>
       </div>
 
     </div>
@@ -68,6 +78,10 @@
           <%="#{pluralize(@questions.count, 'question')} posted"  %>
         </span>
         <br/>
+        <span class="stats" id="community-suggestions-count">
+          <%="#{pluralize(@suggestions.count, 'suggestion')} posted"  %>
+        </span>
+        <br/>
         <span class="stats" id="community-members-count">
           <%="#{ pluralize(@members.count, 'member')} on board" %>
         </span>
@@ -82,14 +96,21 @@
           <%= "#{pluralize(Member.last.questions.count, 'question')} posted overall" %>
         </span>
         <br/>
+        <span class="stats" id="member-total-suggestions">
+          <%= "#{pluralize(Member.last.suggestions.count, 'suggestion')} posted overall" %>
+        </span>
+        <br/>
         <span class="stats" id="member-total-questions-community">
           <%#find the number of questions member has contributed to a specific community%> 
           <%= "#{pluralize((Member.last.questions & @community.questions).count, "question")} on this community" %>
+        </span>
+        <br/>
+        <span class="stats" id="member-total-suggestions-community">
+          <%#find the number of questions member has contributed to a specific community%> 
+          <%= "#{pluralize((Member.last.suggestions & @community.suggestions).count, "suggestion")} on this community" %>
         </span>
       </li>
 
     </ul>
   </div>
-  <!-- end #sidebar -->
 </div>
-<!-- end #page -->

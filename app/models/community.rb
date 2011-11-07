@@ -1,5 +1,6 @@
 class Community < ActiveRecord::Base
   has_many :questions, :dependent => :destroy
+  has_many :suggestions, :dependent => :destroy
   has_and_belongs_to_many :members
 
   has_attached_file :logo, :styles => {:medium => "300 * 300>", 

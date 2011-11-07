@@ -1,18 +1,23 @@
 class ResponsesController < ApplicationController
 
+  def new
+    @response = Response.new
+  end
+
   def create
     @respondable = find_respondable #the question or suggestion etc that is being responded to 
-    #might be useful later
-    #@comments = Comment.find(:all,
-                                    #:joins => "forum_topics",
-                                    #:conditions => ["forum_topics.featured = ? ", true] 
-                                    #)
-    @reponse = @respondable.responses.create!(:member_id => params[:response][:member_id], :content=> params[:response][:content])
+
+     logger.debug "Respondable should be valid: #{@respondable.valid?}"
+
+     #debugger
+    @response = @respondable.responses.create(:member_id => params[:response][:member_id], :content=> params[:response][:content])
+     logger.debug "Response should be valid: #{@response.valid?}" #checking for a valid return value 
 
     @community = Community.find(@respondable.community)
+     logger.debug "Community should be valid: #{@community.valid?}"
 
     if  !@response.nil? &&  @response.save
-      flash[:success] = "Response submitted successfully"
+      flash[:notice] = "Response submitted successfully"
 
       respond_to do |format|
         format.html {redirect_to @community}
@@ -24,7 +29,7 @@ class ResponsesController < ApplicationController
       @title = "Create Question"
       respond_to do |format|
         format.html {redirect_to @community}
-        format.js
+        format.js {redirect_to @community}
       end
     end
 
@@ -46,7 +51,7 @@ class ResponsesController < ApplicationController
   end
 
 
-  private
+  #private
 
   def find_respondable
     params.each do |name, value|

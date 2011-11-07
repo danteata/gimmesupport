@@ -1,5 +1,11 @@
 GimmeSupport::Application.routes.draw do
 
+  get "suggestions/new"
+
+  get "suggestions/show"
+
+  get "suggestions/edit"
+
   get "chats/new"
 
   get "pages/home"
@@ -23,8 +29,11 @@ GimmeSupport::Application.routes.draw do
   resources :communities
   resources :questions do
     resources :responses
+    resources :suggestions
   end
-  resource :responses
+  resources :responses
+  resources :suggestions
+  resources :chats
 
   get "communities/search"
   post "communities/find"

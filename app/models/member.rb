@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
 
   has_many :questions
+  has_many :suggestions
 
   has_many :responses
 

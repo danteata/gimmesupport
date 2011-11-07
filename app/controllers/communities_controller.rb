@@ -29,6 +29,7 @@ class CommunitiesController < ApplicationController
     @community = Community.find(params[:id])
     @questions = @community.questions
     @questions = @questions.paginate(:page=>params[:page], :per_page => 5)
+    @suggestions = @community.suggestions.paginate(:page=>params[:page], :per_page => 5)
     @members = @community.members
     #@questions = @community.questions.blank?[] : @community.questions
     #@community = Community.find_by_name(params[:id]) #for displaying url with company name 
@@ -59,6 +60,7 @@ class CommunitiesController < ApplicationController
   end
 
   def chat
+    render :controller => "chats", :action => "index"
 
   end
   
