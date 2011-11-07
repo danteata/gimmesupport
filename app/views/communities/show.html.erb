@@ -5,11 +5,11 @@
       <div id="tabs">
 
         <ul class="tabnav">
-          <li><%= link_to "Ask a question", "#contact_form" %></li>
+          <li><%= link_to "Ask a question", "#question_form" %></li>
           <li><%= link_to "Post a suggestion", "#suggestion_form" %></li>
         </ul>
         <div class= "panes">
-          <div id="contact_form" class="tabdiv">
+          <div id="question_form" class="tabdiv">
             <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
             <%= form_for @community.questions.build(:member_id => Member.last.id), :remote => true do |f|%>
 
@@ -39,7 +39,7 @@
     <div id="about">
       <%=image_tag "coms.jpg"%>
 
-      <div id="comments">
+      <div id="questions">
 
         <%= render @questions unless @questions.blank? %>
 
