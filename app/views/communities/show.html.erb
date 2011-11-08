@@ -43,9 +43,9 @@
 
         <%= render @questions unless @questions.blank? %>
 
+      </div>
         <%#pagination functionality for questions displayed%> 
         <%= will_paginate @questions %>
-      </div>
 
       <%=image_tag "coms.jpg"%>
 
@@ -53,9 +53,9 @@
 
         <%= render @suggestions unless @suggestions.blank? %>
 
+      </div>
         <%#pagination functionality for suggestions displayed%> 
         <%= will_paginate @suggestions  %>
-      </div>
 
     </div>
   </div>

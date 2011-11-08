@@ -25,7 +25,6 @@ class CommunitiesController < ApplicationController
   end
 
   def show
-    sleep 1
     @community = Community.find(params[:id])
     @questions = @community.questions
     @questions = @questions.paginate(:page=>params[:page], :per_page => 5)
