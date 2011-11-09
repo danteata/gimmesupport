@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-gem 'ruby-debug19'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -36,6 +35,7 @@ gem "will_paginate"
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
+  gem 'ruby-debug19'
   gem "rspec-rails"
   gem "spork"
   gem "webrat"
