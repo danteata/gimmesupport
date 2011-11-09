@@ -1,4 +1,15 @@
-<%= render @questions unless @questions.empty? %>
+<%#<%= render @questions unless @questions.empty? %>
 
+<% unless @questions.blank? -%>
+  <% @questions.each do |question| -%>
+    <div class="postedby"><p><%= link_to question.member.user_name unless question.member.blank?%></p></div>
+    <div class="thumbimage"><%= image_tag question.member.avatar.url("small") unless question.member.blank?%></div>
+    <div class="questiontext"><p><%=link_to question.content, community_question_path(question.community, question) %></p></div>
+    <div class="time"><%="#{time_ago_in_words question.created_at} ago"  %></div>
+    <div class="responses"><%= pluralize question.responses.count, "response" %></div>
+    <div class="status"><%= question.status %></div>
+    <hr/>
+  <% end -%>
+<% end -%>
 <%#pagination functionality for questions displayed%> 
 <%= will_paginate @questions %>

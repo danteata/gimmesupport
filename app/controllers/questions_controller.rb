@@ -2,12 +2,14 @@ class QuestionsController < ApplicationController
 
   #respond_to :html, :js
   def index
-    @questions = Questions.all.paginate(:page=>1)
+    @community = Community.find(params[:community_id])
+    @questions = @community.questions
   end
 
   def new
 
-    @question = Question.new
+    @community = Community.find(params[:community_id])
+    @question = @community.questions.build
   end
 
   def create
@@ -35,20 +37,33 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
-
-    if @question.save
-
-    end
+    @community = @question.community
 
   end
 
   def update
+    @question = Question.find(params[:id])
+    if @question.update_attributes(:question)
+      flash[:notice] = "question updated successfully"
+      redirect_to community_path(@question.community)
+    else
+      render "edit"
+    end
 
   end
 
   def show
     @question = Question.find(params[:id])
+    @responses = @question.responses.paginate(:page => params[:page], :per_page => 5)
+    @community = @question.community
 
+  end
+  
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    flash[:notice] = "successfully deleted question"
+    redirect_to community_path(@question.community)
   end
 
 end

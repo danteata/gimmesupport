@@ -1,5 +1,44 @@
-<h1>Suggestions#show</h1>
-<p><%= @suggestion.member %></p>
-<%= @suggestion.title %>
-<%= @suggestion.content %>
-<%= @suggestion.status%>
+            <div id="page">
+
+                <div id="content">
+                    <div id="about">
+                        <div id="menubar">
+                            <ul>
+                              <li><%= image_tag "suggestionsa.jpg" %>
+                                <li><a href="msuggestions.php" onclick="document.getElementById('imq2').src='images/questionsa.jpg'"><img src="images/suggestionsb.jpg" id="imq2"></img></a></li>
+                            </ul>
+                        </div>
+                          <%= render @suggestion %>
+                    </div>
+                </div>
+                <!-- end #content -->
+                <div id="sidebar">
+                    <ul>		
+                        <li>
+                            <h2>Community stats</h2>
+                            <hr/>
+                            <p>This is one of many support communities on 
+                                Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+                        </li>
+                        <li>
+                            <h2>Moderator stats</h2>
+                            <hr/>
+                            <p>This is one of many support communities on 
+                                Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- end #sidebar -->
+                <div style="clear: both;">&nbsp;</div>
+                <div id="footer">
+
+        </div>
+            </div>
+            <!-- end #page -->
+
+        </div>
+
+        <!-- end #footer -->
+    </body>
+</html>

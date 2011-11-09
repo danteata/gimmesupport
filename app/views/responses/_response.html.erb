@@ -1,5 +1,10 @@
+<div class= "postedby">
+  <%= response.member.user_name %>
+</div>
+<div class="thumbimage">
+  <%= image_tag response.member.avatar.url("small") unless response.member.nil? %>
+</div>
 <%= response.content %>
 <br/>
-<%= response.member.user_name %>
 <%="#{time_ago_in_words response.created_at}  ago"%>
 <hr/>

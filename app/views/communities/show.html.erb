@@ -2,10 +2,16 @@
   <div id="content">
     <div class="post">
 
+      <script>
+        jQuery(function(){
+          jQuery(".tabnav").tabs();
+        });
+      </script>
+      
       <div id="tabs">
 
         <ul class="tabnav">
-          <li><%= link_to "Ask a question", "#question_form" %></li>
+          <li ><%= link_to "Ask a question", "#question_form", :id=>"active-tab" %></li>
           <li><%= link_to "Post a suggestion", "#suggestion_form" %></li>
         </ul>
         <div class= "panes">
@@ -21,41 +27,55 @@
             <% end %>
           </div>
 
-          <div id="suggestion_form" class="tabdiv">
-            <%#currently the first member of the community is doing all the questions. TODO: Change this behaviour%>
-            <%= form_for @community.suggestions.build(:member_id => Member.last.id), :remote => true do |f|%>
-
-              <%= f.hidden_field :member_id %>
-              <%= f.hidden_field :community_id %>
-              <%= f.text_area :content,:id =>"suggestion-text-area", :rows => "4", :cols =>"57", :placeholder=> "Post a suggestion HERE." %>
-              <br/>
-              <%= f.submit "Suggest", :class => "button", :id => "submit_btn" %>
-            <% end %>
-          </div>
         </div>
       </div>
     </div>
 
     <div id="about">
-      <%=image_tag "coms.jpg"%>
-
-      <div id="questions">
-
-        <%= render @questions unless @questions.blank? %>
-
+      <div id="menubar">
+        <ul>
+          <li><%= link_to image_tag "questionsa.jpg" %></li>
+        </ul>
       </div>
-        <%#pagination functionality for questions displayed%> 
-        <%= will_paginate @questions %>
 
-      <%=image_tag "coms.jpg"%>
+     <div id="questions" class="comments">
+       <% unless @questions.blank? -%>
+       <% @questions.each do |question| -%>
+         <div class="postedby"><p><%= link_to question.member.user_name unless question.member.blank?%></p></div>
+         <div class="thumbimage"><%= image_tag question.member.avatar.url("small") unless question.member.blank?%></div>
+         <div class="questiontext"><p><%=link_to question.content, community_question_path(question.community, question) %></p></div>
+         <div class="time"><%="#{time_ago_in_words question.created_at} ago"  %></div>
+            <div class="responses"><%= pluralize question.responses.count, "response" %></div>
+            <div class="status"><%= question.status %></div>
+            <hr/>
+          <% end -%>
+          <% end -%>
+        </div> 
 
-      <div id="suggestions">
+      <%#pagination functionality for questions displayed%> 
+      <%= will_paginate @questions %>
 
-        <%= render @suggestions unless @suggestions.blank? %>
-
+      <div id="menubar">
+        <ul>
+          <li><%= link_to image_tag "suggestionsa.jpg" %></li>
+        </ul>
       </div>
-        <%#pagination functionality for suggestions displayed%> 
-        <%= will_paginate @suggestions  %>
+
+     <div class="comments" id="suggestions">
+       <% unless @suggestions.blank? -%>
+       <% @suggestions.each do |suggestion| -%>
+         <div class="postedby"><p><%= link_to suggestion.member.user_name unless suggestion.member.blank?%></p></div>
+         <div class="thumbimage"><%= image_tag suggestion.member.avatar.url("small") unless suggestion.member.blank?%></div>
+            
+            
+         <div class="suggestiontext"><p><%=link_to suggestion.content, community_suggestion_path(suggestion.community, suggestion) %></p></div>
+         <div class="time"><%= "#{time_ago_in_words suggestion.created_at} ago"  %></div>
+            <div class="responses"><%= pluralize suggestion.responses.count, "response" %></div>
+            <div class="status"><%= suggestion.status %></div>
+            <hr/>
+          <% end -%>
+          <% end -%>
+        </div> 
 
     </div>
   </div>

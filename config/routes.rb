@@ -26,7 +26,10 @@ GimmeSupport::Application.routes.draw do
 
 
   resources :members
-  resources :communities
+  resources :communities do
+    resources :questions
+    resources :suggestions
+  end
   resources :questions do
     resources :responses
     resources :suggestions

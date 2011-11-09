@@ -1,32 +1,40 @@
 <hr/>
-
-<%#<div id="thumbimage"><img src="" width="50" height="50">%>
-<%#<%=link_to image_tag suggestion.member.avatar.url("thumb") unless suggestion.member.nil? %>
-<%#</img></div>%>
-
-<div id="suggestion"><p>
-    <%="#{ time_ago_in_words suggestion.created_at } ago " %> 
-<br/>
-<%= link_to suggestion.member.user_name unless suggestion.member.nil?  %>:
-<%= suggestion.content %>
-</p></div>
-
-<div id="status">
-<%= suggestion.status %>
-</div>
-  <form action="" method="post">
-      <input type="submit" value="I second" name="followbtn"></input>
-  </form>
-  <div id="suggestion-responses">
-    <span>Responses</span>
-    <hr/>
-    <%= render suggestion.responses %>
+<div class="comments">
+  <div class="postedby">
+    <%= link_to suggestion.member.user_name unless suggestion.member.nil?  %>
   </div>
+  <div class="thumbimage">
+    <%= image_tag suggestion.member.avatar.url("small") %>
+  </div>
+  <div id="suggestion" class= "questiontext"><p>
+      <br/>
+      <%= link_to suggestion.content, community_suggestion_path(suggestion.community, suggestion) %> <%#sends member to suggestions path%> 
+  </p></div>
+  <div class= "time">
+    <%="#{ time_ago_in_words suggestion.created_at } ago " %> 
+  </div>
+  <div class="responses">
+    <%= pluralize suggestion.responses.count, "response" %>
+  </div>
+  <div id="status" class="status">
+    <%= suggestion.status %>
+  </div>
+  <form action="" method="post">
+    <input type="submit" value="I second" name="followbtn"></input>
+  </form>
+</div>
+<div id="suggestion-responses" class= "responders">
+  <span>Responses</span>
+  <hr/>
+  <%= render suggestion.responses %>
+</div>
+<div class=responders>
   <%= form_for suggestion.responses.build(:member_id => Member.first.id), :remote => true do |f|%>
 
-  <%= f.hidden_field :member_id %>
-  <%= hidden_field_tag 'suggestion_id', suggestion.id  %>
-  <%= f.text_area :content,:id =>"response-text-area", :rows => "4", :cols =>"57", :placeholder=> "  Your response " %>
-  <br/>
-  <%= f.submit "Respond", :class => "button", :id => "submit_btn" %>
-<% end %>
+    <%= f.hidden_field :member_id %>
+    <%= hidden_field_tag 'suggestion_id', suggestion.id  %>
+    <%= f.text_area :content,:id =>"response-text-area", :rows => "4", :cols =>"57", :placeholder=> "  Your response " %>
+    <br/>
+    <%= f.submit "Respond", :class => "button", :id => "submit_btn" %>
+  <% end %>
+</div>

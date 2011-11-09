@@ -1,31 +1,35 @@
 <hr/>
+<div class="comments">
 
-<%#<div id="thumbimage"><img src="" width="50" height="50">%>
-<%#<%=link_to image_tag question.member.avatar.url("thumb") unless question.member.nil? %>
-<%#</img></div>%>
+  <div class= "postedby">
+    <%= link_to question.member.user_name unless question.member.nil?  %>:
+  </div>
+  <div class="time"><%="#{time_ago_in_words question.created_at} ago"  %></div>
 
-<div id="question_<%= question.id %>-text" class="questiontext"><p>
-    <%="#{ time_ago_in_words question.created_at } ago " %> 
-<br/>
-<%= link_to question.member.user_name unless question.member.nil?  %>:
-<%= question.content %>
-</p></div>
+  <div class="thumbimage">
+    <%= image_tag question.member.avatar.url("small") unless question.member.nil? %>
+  </div>
 
-<div id="question_<%= question.id %>-status">
-  <%= question.status %>
-</div>
-<div id="question_<%= question.id %>-responses-count">
-  <%= pluralize(question.responses.count, "response")  %>
-</div>
+  <div id="question_<%= question.id %>-text" class="questiontext"><p>
+      <br/>
+      <%=link_to question.content, community_question_path(question.community, question) %>
+  </p></div>
+
+  <div id="question_<%= question.id %>-status" class="status">
+    <%= question.status %>
+  </div>
+  <div id="question_<%= question.id %>-responses-count" class="responses">
+    <%= pluralize(question.responses.count, "response")  %>
+  </div>
   <form action="" method="post">
-      <input type="submit" value="follow" name="followbtn"></input>
+    <input type="submit" value="follow" name="followbtn"></input>
   </form>
   <span>Responses</span>
   <hr/>
-  <div id="question_<%= question.id %>-responses">
+  <div id="question_<%= question.id %>-responses" class= "responders"> 
     <%= render question.responses %>
   </div>
-  <div id="question_<%= question.id %>-new_response">
+  <div id="question_<%= question.id %>-new_response" class="responders">
     <%= form_for question.responses.build(:member_id => Member.first.id), :remote => true do |f|%>
 
       <%= f.hidden_field :member_id %>
@@ -35,3 +39,4 @@
       <%= f.submit "Respond", :class => "button", :id => "submit_btn" %>
     <% end %>
   </div>
+</div>

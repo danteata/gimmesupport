@@ -1,0 +1,73 @@
+            <div id="page">
+
+                <div id="content">
+
+                    <div id="about">
+                        <div id="menubar">
+                            <ul>
+                                <li> <%= image_tag "suggestionsa.jpg" %></li>
+                            </ul>
+                    </div>
+                        
+                    <div id="contact_form">
+                            <form name="contact" method="post" action="">
+                                <textarea name="name" rows="4" cols="57" id="name" placeholder="Make a suggestion here"></textarea>
+
+
+
+                                <input type="submit" name="submit" class="button" id="submit_btn" />
+                            </form>                              
+                        </div>
+                     <div class="comments">
+                       <% unless @suggestions.blank? -%>
+                       <% @suggestions.each do |suggestion| -%>
+                         <div class="postedby"><p><%= link_to suggestion.member.user_name unless suggestion.member.blank?%></p></div>
+                         <div class="thumbimage"><%= image_tag suggestion.member.avatar.url("small") unless suggestion.member.blank?%></div>
+                            
+                            
+                         <div class="suggestiontext"><p><%=link_to suggestion.content, community_suggestion_path(suggestion.community, suggestion) %></p></div>
+                            <div class="time"><%= time_ago_in_words suggestion.created_at %></div>
+                            <div class="responses"><%= pluralize suggestion.responses.count, "response" %></div>
+                            <div class="status"><%= suggestion.status %></div>
+                          <% end -%>
+                          <% end -%>
+                        </div> 
+
+                    </div>
+                </div>
+                <!-- end #content -->
+                <div id="sidebar">
+                    <ul>		
+                        <li>
+                            <h2>Community stats</h2>
+                            <hr/>
+                            <p>This is one of many support communities on 
+                                Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+                        </li>
+                        <li>
+                            <h2>Moderator stats</h2>
+                            <hr/>
+                            <p>This is one of many support communities on 
+                                Get Satisfaction, a place where customers and companies connect around the products and services they use..</p>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <!-- end #sidebar -->
+                <div style="clear: both;">&nbsp;</div>
+                <div id="footer">
+
+
+                </div>
+            </div>
+            <!-- end #page -->
+
+        </div>
+
+
+
+        <!-- end #footer -->
+    </body>
+</html>

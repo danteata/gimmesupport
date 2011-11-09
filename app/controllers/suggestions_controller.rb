@@ -1,12 +1,14 @@
 class SuggestionsController < ApplicationController
   #respond_to :html, :js
   def index
-    @suggestions = Suggestions.all.paginate(:page=>1)
+    @community = Community.find(params[:community_id])
+    @suggestions= @community.suggestions
   end
 
   def new
+    @community = Community.find(params[:community_id])
+    @qsuggestion = @community.suggestions.build
 
-    @suggestion = Suggestion.new
   end
 
   def create
@@ -35,19 +37,30 @@ class SuggestionsController < ApplicationController
   def edit
     @suggestion = Suggestion.find(params[:id])
 
-    if @suggestion.save
-
-    end
-
   end
 
   def update
 
+    @suggestion = Suggestion.find(params[:id])
+    if @suggestion.update_attributes(:suggestion)
+      flash[:notice] = "suggestion updated successfully"
+      redirect_to community_path(@suggestion.community)
+    else
+      render "edit"
+    end
   end
 
   def show
     @suggestion = Suggestion.find(params[:id])
+    @community = @suggestion.community
 
+  end
+
+  def destroy
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.destroy
+    flash[:notice] = "successfully deleted suggestion"
+    redirect_to community_path(@suggestion.community)
   end
 
 
